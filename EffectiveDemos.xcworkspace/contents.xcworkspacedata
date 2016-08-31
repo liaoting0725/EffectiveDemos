@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:TableHeaderView/TableHeaderView.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ScollToTop/ScollToTop.xcodeproj">
    </FileRef>
    <FileRef
