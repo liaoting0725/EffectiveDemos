@@ -2,6 +2,7 @@
 ## ScrollToTop
 一个viewController上面有多个scrollview的时候，点击statusbar，scrollview不能滑到顶部。这里提供一个解决办法，用kvo检测大的scrollview的contentoffset，而后设置那个scrollview的scrollsToTop为真<br \>
 代码如下：<br \>
+
 ```
 [self.scrollView bk_addObserverForKeyPath:@"contentOffset" task:^(id target) {
     self.scrollView.scrollsToTop = NO;
@@ -68,3 +69,29 @@
 <img src="./PicsInReadme/TableHeaderView.gif" width = "30%" height ="30%"/><br \> 
 > 本demo参考:[senge7890/CDTableViewHeaderDemo](https://github.com/senge7890/CDTableViewHeaderDemo), [ios 7 statusbar 状态栏 跟随navigationbar的颜色而改变](http://blog.csdn.net/xiaoxuan415315/article/details/22810179)<br \> 
 > 本demo使用的第三方:[BlocksKit](https://github.com/zwaldowski/BlocksKit), [Masonry](https://github.com/SnapKit/Masonry)
+
+
+##ViewControllerTransition
+iOS7之后自定义控制器之间的转场<br \>
+图片如下：<br \>
+<img src="./PicsInReadme/ViewControllerTransition.gif" width = "30%" height ="30%"/><br \> 
+demo中重要实现的是要定义遵从UIViewControllerAnimatedTransitioning代理的对象，同事实现代理方法：<br >
+实现自定义动画
+
+```
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext{}
+```
+返回自定义转场时间
+
+```
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext{}
+```
+
+- (nullable __kindof UIView *)viewForKey:(NSString *)key NS_AVAILABLE_IOS(8_0);是iOS8以后才能使用，因此我这里没有使用这个系统提供的方法，而是使用以下系统提供的方法
+
+```
+UINavigationController *fromNav = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UINavigationController *toNav = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIView *containView = [transitionContext containerView];
+```
+在具体动画实现中使用了截图大法😁😝
