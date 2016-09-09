@@ -12,3 +12,11 @@ pod 'BlocksKit', '~> 2.2.5'
 pod 'Masonry', '~> 1.0.1'
 project 'TableHeaderView/TableHeaderView.xcodeproj'
 end
+
+
+
+target 'ViewControllerTransition' do
+pod 'BlocksKit', '~> 2.2.5'
+pod 'Masonry', '~> 1.0.1'
+project 'ViewControllerTransition/ViewControllerTransition.xcodeproj'
+end
