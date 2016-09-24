@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:QRCode/QRCode.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:StartBanner/StartBanner.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:DropDownMenu/DropDownMenu.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ViewControllerTransition/ViewControllerTransition.xcodeproj">
    </FileRef>
    <FileRef
