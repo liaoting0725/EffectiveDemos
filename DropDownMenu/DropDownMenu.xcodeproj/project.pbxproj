@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F1E9BAB1DCD803200F5DD91 /* OptionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E9BAA1DCD803200F5DD91 /* OptionControl.m */; };
 		5F985BD41D83F13D00C85F22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F985BD31D83F13D00C85F22 /* main.m */; };
 		5F985BD71D83F13D00C85F22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F985BD61D83F13D00C85F22 /* AppDelegate.m */; };
 		5F985BDA1D83F13D00C85F22 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F985BD91D83F13D00C85F22 /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F1E9BA91DCD803200F5DD91 /* OptionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionControl.h; sourceTree = "<group>"; };
+		5F1E9BAA1DCD803200F5DD91 /* OptionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionControl.m; sourceTree = "<group>"; };
 		5F985BCF1D83F13D00C85F22 /* DropDownMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropDownMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F985BD31D83F13D00C85F22 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5F985BD51D83F13D00C85F22 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 				5F985BD61D83F13D00C85F22 /* AppDelegate.m */,
 				5F985BD81D83F13D00C85F22 /* ViewController.h */,
 				5F985BD91D83F13D00C85F22 /* ViewController.m */,
+				5F1E9BA91DCD803200F5DD91 /* OptionControl.h */,
+				5F1E9BAA1DCD803200F5DD91 /* OptionControl.m */,
 				5F985BDB1D83F13D00C85F22 /* Main.storyboard */,
 				5F985BDE1D83F13D00C85F22 /* Assets.xcassets */,
 				5F985BE01D83F13D00C85F22 /* LaunchScreen.storyboard */,
@@ -110,6 +115,7 @@
 				TargetAttributes = {
 					5F985BCE1D83F13D00C85F22 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 4DS63DJUQ6;
 					};
 				};
 			};
@@ -149,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F1E9BAB1DCD803200F5DD91 /* OptionControl.m in Sources */,
 				5F985BDA1D83F13D00C85F22 /* ViewController.m in Sources */,
 				5F985BD71D83F13D00C85F22 /* AppDelegate.m in Sources */,
 				5F985BD41D83F13D00C85F22 /* main.m in Sources */,
@@ -263,7 +270,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4DS63DJUQ6;
 				INFOPLIST_FILE = DropDownMenu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liaoting.DropDownMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -274,7 +283,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4DS63DJUQ6;
 				INFOPLIST_FILE = DropDownMenu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liaoting.DropDownMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,6 +311,7 @@
 				5F985BE81D83F13D00C85F22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
