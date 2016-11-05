@@ -15,15 +15,18 @@ PODS:
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
   - Masonry (1.0.1)
+  - MJRefresh (3.1.9)
 
 DEPENDENCIES:
   - BlocksKit (~> 2.2.5)
   - Masonry (~> 1.0.1)
+  - MJRefresh (~> 3.1.9)
 
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  MJRefresh: c5f1f1653e5a1b932c90f78074f2bc86f3f9bd5e
 
-PODFILE CHECKSUM: ca9501bfc51f29433b2f69b93dd66057a9ef6fbc
+PODFILE CHECKSUM: 07c48a7e2a0e0a1e00fd4886b2a183d217e83618
 
 COCOAPODS: 1.0.0

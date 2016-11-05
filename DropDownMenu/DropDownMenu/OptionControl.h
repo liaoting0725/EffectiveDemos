@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface OptionControl : NSObject
-
+@property (copy, nonatomic) void (^selectBlock) (NSInteger selectIndex);
+- (void)setupWithViewController:(UIViewController *)viewController dataArray:(NSArray *)dataArray;
 @end

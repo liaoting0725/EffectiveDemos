@@ -19,6 +19,8 @@ static const CGFloat scale = 1;
 @end
 
 @implementation ViewController
+- (IBAction)makeQRCodePic:(id)sender {
+}
 
 - (UITableView *)tableView {
     if (!_tableView) {

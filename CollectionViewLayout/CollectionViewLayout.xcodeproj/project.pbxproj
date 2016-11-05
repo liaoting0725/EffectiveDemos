@@ -13,6 +13,7 @@
 		5F9274E31DC4520C0051738F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F9274E11DC4520C0051738F /* Main.storyboard */; };
 		5F9274E51DC4520C0051738F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F9274E41DC4520C0051738F /* Assets.xcassets */; };
 		5F9274E81DC4520C0051738F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F9274E61DC4520C0051738F /* LaunchScreen.storyboard */; };
+		5F9274F11DC452570051738F /* CustomLayout0.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9274F01DC452570051738F /* CustomLayout0.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		5F9274E41DC4520C0051738F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F9274E71DC4520C0051738F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F9274E91DC4520C0051738F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F9274EF1DC452570051738F /* CustomLayout0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLayout0.h; sourceTree = "<group>"; };
+		5F9274F01DC452570051738F /* CustomLayout0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLayout0.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				5F9274DC1DC4520C0051738F /* AppDelegate.m */,
 				5F9274DE1DC4520C0051738F /* ViewController.h */,
 				5F9274DF1DC4520C0051738F /* ViewController.m */,
+				5F9274EF1DC452570051738F /* CustomLayout0.h */,
+				5F9274F01DC452570051738F /* CustomLayout0.m */,
 				5F9274E11DC4520C0051738F /* Main.storyboard */,
 				5F9274E41DC4520C0051738F /* Assets.xcassets */,
 				5F9274E61DC4520C0051738F /* LaunchScreen.storyboard */,
@@ -154,6 +159,7 @@
 				5F9274E01DC4520C0051738F /* ViewController.m in Sources */,
 				5F9274DD1DC4520C0051738F /* AppDelegate.m in Sources */,
 				5F9274DA1DC4520C0051738F /* main.m in Sources */,
+				5F9274F11DC452570051738F /* CustomLayout0.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "OptionControl.h"
+
+#define optionArray @[@"全部",@"选择1",@"选择2",@"选择3",@"选择4",@"选择5",@"选择6",@"选择7"]
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *showLabel;
+@property (strong, nonatomic) OptionControl *control;
 
 @end
 
@@ -16,14 +21,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationController.navigationBar.barTintColor = [UIColor orangeColor];
+    self.showLabel.text = optionArray[0];
+    OptionControl *control = [OptionControl new];
+    [control setupWithViewController:self dataArray:optionArray];
+    control.selectBlock = ^(NSInteger selectIndex) {
+        self.showLabel.text = optionArray[selectIndex];
+    };
+    self.control = control;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-- (IBAction)click:(id)sender {
-}
+
+
+
+
+
+
 
 @end
