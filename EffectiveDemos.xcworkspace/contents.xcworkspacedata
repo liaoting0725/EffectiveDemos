@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:WaterFlow/WaterFlow.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CollectionViewLayout/CollectionViewLayout.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:QRCode/QRCode.xcodeproj">
    </FileRef>
    <FileRef
