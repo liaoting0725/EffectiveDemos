@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ScrollComponent/ScrollComponent.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:WaterFlow/WaterFlow.xcodeproj">
    </FileRef>
    <FileRef

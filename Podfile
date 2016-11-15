@@ -24,3 +24,10 @@ pod 'Masonry', '~> 1.0.1'
 pod 'MJRefresh', '~> 3.1.9'
 project 'WaterFlow/WaterFlow.xcodeproj'
 end
+
+target 'ScrollComponent' do
+    pod 'BlocksKit', '~> 2.2.5'
+    pod 'Masonry', '~> 1.0.1'
+    pod 'MJRefresh', '~> 3.1.9'
+    project 'ScrollComponent/ScrollComponent.xcodeproj'
+end
