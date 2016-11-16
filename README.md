@@ -95,3 +95,48 @@ UINavigationController *fromNav = [transitionContext viewControllerForKey:UITran
     UIView *containView = [transitionContext containerView];
 ```
 在具体动画实现中使用了截图大法😁😝
+
+##ScrollComponent
+视图控制前上面的tableview上下滑动时响应scrollview代理
+
+```
+-(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    if (velocity.y > 0.0) {
+        //向上滑动隐藏导航栏
+        [UIView animateWithDuration:0.2 animations:^{
+            [self.navigationController setNavigationBarHidden:YES];
+            self.topOne.transform = CGAffineTransformMakeTranslation(0, -20);
+            self.topTwo.transform = CGAffineTransformMakeTranslation(0, -20);
+            self.tableView.transform = CGAffineTransformMakeTranslation(0, -20);
+            CGRect rect = self.tableView.frame;
+            self.tableView.frame = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, screenHeight -40 -20);
+        } completion:^(BOOL finished) {
+            _hidden = YES;
+        }];
+    }else {
+        //向下滑动显示导航栏
+        [UIView animateWithDuration:0.2 animations:^{
+            [self.navigationController setNavigationBarHidden:NO];
+            self.topOne.transform = CGAffineTransformIdentity;
+            self.topTwo.transform = CGAffineTransformIdentity;
+            self.tableView.transform = CGAffineTransformIdentity;
+            CGRect rect = self.tableView.frame;
+            self.tableView.frame = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, screenHeight - 40 -44 - 64);
+        } completion:^(BOOL finished) {
+            _hidden = NO;
+        }];
+    }
+}
+```
+下面代码是将原始数据按照是否选中降序排列，原始数据的index升序排列，得到新需要的数据
+
+```
+//数组排序
+- (void)sortArray {
+    NSSortDescriptor *sortDescriporPrimary = [NSSortDescriptor sortDescriptorWithKey:@"select" ascending:NO];
+    NSSortDescriptor *sortDescriporSecondary = [NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES];
+    [_originArray sortUsingDescriptors:@[sortDescriporPrimary,sortDescriporSecondary]];
+}
+```
+<img src="./PicsInReadme/ScrollComponent.gif" width = "30%" height ="30%"/><br \> 
