@@ -12,8 +12,8 @@
 #import "DemoViewController.h"
 #import "OptionObject.h"
 
-@interface DemoViewController () <UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate> {
-    BOOL _scroll;
+@interface DemoViewController () <UITableViewDelegate, UITableViewDataSource> {
+    BOOL _hidden;//nav是否隐藏
 }
 
 @property (weak, nonatomic) IBOutlet UIView *topOne;
@@ -36,8 +36,6 @@
     self.topOne.frame = CGRectMake(0, 0, screenWidth, 40);
     self.topTwo.frame = CGRectMake(0, 40, screenWidth, 44);
     self.tableView.frame = CGRectMake(0, CGRectGetMaxY(self.topTwo.frame), screenWidth, screenHeight -40 -44 -64);
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-    [self.tableView addGestureRecognizer:tap];
     NSMutableArray *originArray = [NSMutableArray array];
     for (int i =0; i <9; i++) {
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -79,11 +77,10 @@
     return cell;
 }
 
--(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
-{
+//隐藏头部nav判断
+-(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
-    if (velocity.y > 0.0)
-    {
+    if (velocity.y > 0.0) {
         //向上滑动隐藏导航栏
         [UIView animateWithDuration:0.2 animations:^{
             [self.navigationController setNavigationBarHidden:YES];
@@ -93,7 +90,7 @@
             CGRect rect = self.tableView.frame;
             self.tableView.frame = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, screenHeight -40 -20);
         } completion:^(BOOL finished) {
-            _scroll = YES;
+            _hidden = YES;
         }];
     }else {
         //向下滑动显示导航栏
@@ -105,25 +102,9 @@
             CGRect rect = self.tableView.frame;
             self.tableView.frame = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, screenHeight - 40 -44 - 64);
         } completion:^(BOOL finished) {
-            _scroll = NO;
+            _hidden = NO;
         }];
     }
-}
-
-- (BOOL)scrollOrNot {
-    return _scroll;
-}
-
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    UIView *view = gestureRecognizer.view;
-    if ([view isKindOfClass:[UITableView class]]) {
-        return NO;
-    }
-    return YES;
-}
-
-- (void)tap:(UITapGestureRecognizer *)ges {
-    
 }
 
 @end

@@ -25,8 +25,8 @@
 static const CGFloat animationTime = .3f;
 
 @interface SecondLevelView () <UICollectionViewDelegate, UICollectionViewDataSource> {
-    BOOL _show;
-    NSIndexPath *_curIndexPath;
+    BOOL _show;//遮罩是否展示
+    NSIndexPath *_curIndexPath;//上部的collectionview被点击的cell的indexpath
 }
 @property (strong, nonatomic) NSMutableArray *originArray;
 @property (strong, nonatomic) UICollectionView *collectionView;
@@ -50,7 +50,6 @@ static const CGFloat animationTime = .3f;
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.itemSize = CGSizeMake(65, 44);
         layout.minimumLineSpacing = 5;
@@ -80,7 +79,6 @@ static const CGFloat animationTime = .3f;
         [bottomView addSubview:transView];
         transView.frame = CGRectMake(-65, 0, 65, 1);
         self.transView = transView;
-        
         
     }
     return _collectionView;
@@ -156,7 +154,7 @@ static const CGFloat animationTime = .3f;
     if (collectionView == _collectionView) {
         OptionObject *object = _originArray[indexPath.item];
         NSString *eName = object.eName;
-        if (self.selectDict.count && [self.selectDict.allKeys containsObject:eName]) {
+        if (self.selectDict.count && [self.selectDict.allKeys containsObject:eName]) {//当前点击之前已被选中
             [self.selectDict removeObjectForKey:eName];
             object.select = NO;
             [self sortArray];
@@ -165,10 +163,10 @@ static const CGFloat animationTime = .3f;
             else
                 [self.collectionView reloadData];
             [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
-        } else {
+        } else {//当前点击未被选中
             //普通未选中状态
+            NSMutableArray *indexPathArray = [NSMutableArray array];
             if (_show) { //下拉已经显示
-                NSMutableArray *indexPathArray = [NSMutableArray array];
                 [indexPathArray addObject:[_curIndexPath copy]];
                 if (indexPath == _curIndexPath) {
                     [self hideProgress:self.progressBtn];
@@ -176,18 +174,13 @@ static const CGFloat animationTime = .3f;
                     _curIndexPath = indexPath;
                     [indexPathArray addObject:[_curIndexPath copy]];
                     [collectionView reloadItemsAtIndexPaths:indexPathArray];
-                    [self animateShow:NO];
+                    [self expendBottomCollection:NO];
                 }
-
             } else { //下拉未显示
-                NSMutableArray *indexPathArray = [NSMutableArray array];
-                if (_curIndexPath) {
-                    [indexPathArray addObject:[_curIndexPath copy]];
-                }
                 _curIndexPath = indexPath;
                 [indexPathArray addObject:[_curIndexPath copy]];
                 [collectionView reloadItemsAtIndexPaths:indexPathArray];
-                [self animateShow:YES];
+                [self expendBottomCollection:YES];
             }
         }
     } else {
@@ -202,14 +195,19 @@ static const CGFloat animationTime = .3f;
     }
 }
 
-- (void)animateShow:(BOOL)show {
+//点击改变下部collectionview的大小
+- (void)expendBottomCollection:(BOOL)expend {
     UIViewController *controller = [self viewController];
-    if (show) {
+    OptionObject *object = _originArray[_curIndexPath.item];
+    NSArray *array = object.itemList;
+    NSInteger rows = array.count/2 + array.count%2;
+    CGFloat height = 40 *(rows >=maxRows? maxRows:rows);
+    if (expend) {
         _show = YES;
         if (!self.progressBtn) {
             UIButton *progressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
             [progressBtn addTarget:self action:@selector(hideProgress:) forControlEvents:UIControlEventTouchUpInside];
-            progressBtn.backgroundColor = [[UIColor colorWithHex:0x000000] colorWithAlphaComponent:0.3];
+            progressBtn.backgroundColor = [blackColor colorWithAlphaComponent:0.3];
             [controller.view addSubview:progressBtn];
             self.progressBtn = progressBtn;
             [self.progressBtn addSubview:_collectionView1];
@@ -217,26 +215,15 @@ static const CGFloat animationTime = .3f;
         CGRect rect = [self convertRect:self.frame toView:controller.view];
         self.progressBtn.frame = CGRectMake(0, CGRectGetMaxY(rect), screenWidth, screenHeight);
         //items个数
-        OptionObject *object = _originArray[_curIndexPath.item];
-        NSArray *array = object.itemList;
-        NSInteger rows = array.count/2 + array.count%2;
-        CGFloat height = 40 *(rows >=maxRows? maxRows:rows);
         _collectionView1.frame = CGRectMake(0, 0, screenWidth, 0);
-        [UIView animateWithDuration:animationTime animations:^{
-            _collectionView1.frame = CGRectMake(0, 0, screenWidth, height);
-        }];
-    } else {
-        OptionObject *object = _originArray[_curIndexPath.item];
-        NSArray *array = object.itemList;
-        NSInteger rows = array.count/2 + array.count%2;
-        CGFloat height = 40 *(rows >=5? 5:rows);
-        [UIView animateWithDuration:animationTime animations:^{
-            _collectionView1.frame = CGRectMake(0, 0, screenWidth, height);
-        }];
     }
+    [UIView animateWithDuration:animationTime animations:^{
+        _collectionView1.frame = CGRectMake(0, 0, screenWidth, height);
+    }];
     [_collectionView1 reloadData];
 }
 
+//隐藏遮罩
 - (void)hideProgress:(UIButton *)sender {
     _show = NO;
     _curIndexPath = nil;
@@ -251,6 +238,7 @@ static const CGFloat animationTime = .3f;
     }];
 }
 
+//滑动上部collectionview隐藏遮罩
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == _collectionView) {
         if (_show) {
@@ -259,6 +247,7 @@ static const CGFloat animationTime = .3f;
     }
 }
 
+//数组排序
 - (void)sortArray {
     NSSortDescriptor *sortDescriporPrimary = [NSSortDescriptor sortDescriptorWithKey:@"select" ascending:NO];
     NSSortDescriptor *sortDescriporSecondary = [NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES];
