@@ -31,3 +31,9 @@ target 'ScrollComponent' do
     pod 'MJRefresh', '~> 3.1.9'
     project 'ScrollComponent/ScrollComponent.xcodeproj'
 end
+
+target 'MarqueeShow' do
+    pod 'BlocksKit', '~> 2.2.5'
+    pod 'Masonry', '~> 1.0.1'
+    project 'MarqueeShow/MarqueeShow.xcodeproj'
+end

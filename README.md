@@ -140,3 +140,7 @@ UINavigationController *fromNav = [transitionContext viewControllerForKey:UITran
 }
 ```
 <img src="./PicsInReadme/ScrollComponent.gif" width = "30%" height ="30%"/><br \> 
+
+
+##MarqueeShow
+<img src="./PicsInReadme/MarqueeShow.gif" width = "30%" height ="30%"/><br \> 
