@@ -37,3 +37,9 @@ target 'MarqueeShow' do
     pod 'Masonry', '~> 1.0.1'
     project 'MarqueeShow/MarqueeShow.xcodeproj'
 end
+
+target 'PhoneAddress' do
+    pod 'BlocksKit', '~> 2.2.5'
+    pod 'Masonry', '~> 1.0.1'
+    project 'PhoneAddress/PhoneAddress.xcodeproj'
+end

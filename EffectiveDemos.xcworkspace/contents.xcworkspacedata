@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:PhoneAddress/PhoneAddress.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MarqueeShow/MarqueeShow.xcodeproj">
    </FileRef>
    <FileRef
