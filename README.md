@@ -138,15 +138,15 @@ UINavigationController *fromNav = [transitionContext viewControllerForKey:UITran
     [_originArray sortUsingDescriptors:@[sortDescriporPrimary,sortDescriporSecondary]];
 }
 ```
-<img src="./PicsInReadme/ScrollComponent.gif" width = "30%" height ="30%"/>\<br \> 
+<img src="./PicsInReadme/ScrollComponent.gif" width = "30%" height ="30%"/>
 
 
 ## MarqueeShow
-<img src="./PicsInReadme/MarqueeShow.gif" width = "30%" height ="30%"/>\<br \> 
+<img src="./PicsInReadme/MarqueeShow.gif" width = "30%" height ="30%"/>
 
 
 ## PhoneAddress
-<img src="./PicsInReadme/PhoneAddress" width = "30%" height ="30%"/>\<br \> 
+<img src="./PicsInReadme/PhoneAddress.gif" width = "30%" height ="30%"/>
 
 [1]:	http://www.cnblogs.com/iCocos/p/4777497.html
 [2]:	https://github.com/zwaldowski/BlocksKit
