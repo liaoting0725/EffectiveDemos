@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:FlickerLabel&#x95ea;&#x70c1;&#x6548;&#x679c;&#x6807;&#x7b7e;/FlickerLabel&#x95ea;&#x70c1;&#x6548;&#x679c;&#x6807;&#x7b7e;.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:PhoneAddress/PhoneAddress.xcodeproj">
    </FileRef>
    <FileRef
