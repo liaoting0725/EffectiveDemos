@@ -19,9 +19,8 @@ project 'ViewControllerTransition/ViewControllerTransition.xcodeproj'
 end
 
 target 'WaterFlow' do
-pod 'BlocksKit', '~> 2.2.5'
-pod 'Masonry', '~> 1.0.1'
 pod 'MJRefresh', '~> 3.1.9'
+pod 'Masonry', '~> 1.0.1'
 project 'WaterFlow/WaterFlow.xcodeproj'
 end
 

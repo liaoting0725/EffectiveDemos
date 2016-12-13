@@ -1,7 +1,7 @@
 # EffectiveDemos
 ## ScrollToTop
-一个viewController上面有多个scrollview的时候，点击statusbar，scrollview不能滑到顶部。这里提供一个解决办法，用kvo检测大的scrollview的contentoffset，而后设置那个scrollview的scrollsToTop为真\<br \>
-代码如下：\<br \>
+一个viewController上面有多个scrollview的时候，点击statusbar，scrollview不能滑到顶部。这里提供一个解决办法，用kvo检测大的scrollview的contentoffset，而后设置那个scrollview的scrollsToTop为真
+代码如下:
 
 ```
 [self.scrollView bk_addObserverForKeyPath:@"contentOffset" task:^(id target) {
@@ -22,15 +22,16 @@
     }];
 }];
 ```
-\<br \>图片如下：\<br \>
-<img src="./PicsInReadme/ScrollToTop.png" width = "70%" />\<br \> 
-> 本demo参考:[iOS开发——实用技术OC片&点击状态栏回到顶部][1]\<br \> 
+
+图片如下：
+<img src="./PicsInReadme/ScrollToTop.png" width = "70%" />
+> 本demo参考:[iOS开发——实用技术OC片&点击状态栏回到顶部][1]
 > 本demo使用的第三方:[BlocksKit][2]
 
 
 ## TableHeaderView
-一个tableview上面有图片放置顶部，滑动tableview会有相对应的图片的放大缩小效果，同时按照判断来修改statusbar的颜色，修改navigationbar的颜色等等\<br \>
-代码如下:\<br \>
+一个tableview上面有图片放置顶部，滑动tableview会有相对应的图片的放大缩小效果，同时按照判断来修改statusbar的颜色，修改navigationbar的颜色等等
+代码如下:
 
 	//观测tableview的contentoffset
 	[self.tableView bk_addObserverForKeyPath:@"contentOffset" task:^(id target) {
@@ -64,17 +65,17 @@
 	    //设置navigationbar的alpha
 	    [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:alpha];
 	}];
-\<br \>图片如下：\<br \>
-<img src="./PicsInReadme/TableHeaderView.gif" width = "30%" height ="30%"/>\<br \> 
-> 本demo参考:[senge7890/CDTableViewHeaderDemo][3], [ios 7 statusbar 状态栏 跟随navigationbar的颜色而改变][4]\<br \> 
+图片如下：
+<img src="./PicsInReadme/TableHeaderView.gif" width = "30%" height ="30%"/>
+> 本demo参考:[senge7890/CDTableViewHeaderDemo][3], [ios 7 statusbar 状态栏 跟随navigationbar的颜色而改变][4]
 > 本demo使用的第三方:[BlocksKit][5], [Masonry][6]
 
 
 ## ViewControllerTransition
-iOS7之后自定义控制器之间的转场\<br \>
-图片如下：\<br \>
-<img src="./PicsInReadme/ViewControllerTransition.gif" width = "30%" height ="30%"/>\<br \> 
-demo中重要实现的是要定义遵从UIViewControllerAnimatedTransitioning代理的对象，同事实现代理方法：<br >
+iOS7之后自定义控制器之间的转场
+图片如下：
+<img src="./PicsInReadme/ViewControllerTransition.gif" width = "30%" height ="30%"/>
+demo中重要实现的是要定义遵从UIViewControllerAnimatedTransitioning代理的对象，同事实现代理方法：
 实现自定义动画
 
 ```
@@ -86,7 +87,7 @@ demo中重要实现的是要定义遵从UIViewControllerAnimatedTransitioning代
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext{}
 ```
 
-- (nullable \_\_kindof UIView *)viewForKey:(NSString *)key NS\_AVAILABLE\_IOS(8\_0);是iOS8以后才能使用，因此我这里没有使用这个系统提供的方法，而是使用以下系统提供的方法
+- (nullable \_\_kindof UIView *)viewForKey:(NSString *)key NS\_AVAILABLE\_IOS(8\_0);是iOS8以后才能使用，因此我这里没有使用这个系统提供的方法，而是使用以下系统提供的方法
 
 ```
 UINavigationController *fromNav = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
