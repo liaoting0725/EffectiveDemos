@@ -87,7 +87,7 @@ demo中重要实现的是要定义遵从UIViewControllerAnimatedTransitioning代
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext{}
 ```
 
-- (nullable \_\_kindof UIView *)viewForKey:(NSString *)key NS\_AVAILABLE\_IOS(8\_0);是iOS8以后才能使用，因此我这里没有使用这个系统提供的方法，而是使用以下系统提供的方法
+- (nullable \_\_kindof UIView *)viewForKey:(NSString *)key NS\_AVAILABLE\_IOS(8\_0);是iOS8以后才能使用，因此我这里没有使用这个系统提供的方法，而是使用以下系统提供的方法
 
 ```
 UINavigationController *fromNav = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
@@ -148,6 +148,17 @@ UINavigationController *fromNav = [transitionContext viewControllerForKey:UITran
 
 ## PhoneAddress
 <img src="./PicsInReadme/PhoneAddress.gif" width = "30%" height ="30%"/>
+
+## WaterFlow
+在代码中设置自定义layout，需要重写四个方法
+
+```
+- (void)prepareLayout{}
+- (CGSize)collectionViewContentSize{}
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath{}
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect{}
+```
+<img src="./PicsInReadme/WaterFlow.gif" width = "30%" height ="30%"/>
 
 [1]:	http://www.cnblogs.com/iCocos/p/4777497.html
 [2]:	https://github.com/zwaldowski/BlocksKit
